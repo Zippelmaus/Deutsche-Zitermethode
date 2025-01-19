@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Kombination von langer und kurzer Zitierweise -->
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0">
+  <info>
+    <title>Custom German Citation Style - Mixed</title>
+    <id>https://github.com/YourUsername/YourRepository/raw/main/custom_german_citation_mixed.csl</id>
+    <link href="https://github.com/YourUsername/YourRepository/raw/main/custom_german_citation_mixed.csl" rel="documentation"/>
+    <updated>2025-01-16T12:00:00+00:00</updated>
+    <author>
+      <name>Your Name</name>
+      <email>your.email@example.com</email>
+    </author>
+    <category field="generic-base"/>
+    <summary>A custom citation style for mixed German footnotes</summary>
+  </info>
+
+  <locale xml:lang="de">
+    <terms>
+      <term name="editor" form="verb-short">Hrsg.</term>
+      <term name="translator" form="verb-short">Übers.</term>
+    </terms>
+  </locale>
+
+  <macro name="author">
+    <names variable="author">
+      <name form="long" and="text" delimiter=", "/>
+    </names>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <macro name="page">
+    <text variable="page" prefix=" S. "/>
+  </macro>
+
+  <citation>
+    <layout delimiter=";">
+      <choose>
+        <if position="first">
+          <group delimiter=". ">
+            <text macro="author"/>
+            <text macro="issued"/>
+            <text macro="title"/>
+            <text macro="page"/>
+          </group>
+        </if>
+        <else>
+          <group delimiter=". ">
+            <text macro="author"/>
+            <text macro="title"/>
+            <text macro="page"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <layout>
+      <group delimiter=". ">
+        <text macro="author"/>
+        <text macro="issued"/>
+        <text macro="title"/>
+        <text macro="page"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
